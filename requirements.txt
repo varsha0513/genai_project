@@ -4,9 +4,13 @@ pandas
 matplotlib
 openpyxl
 python-multipart
+plotly
+kaleido
 
 langchain
 langchain-community
 langchain-ollama
 
 numpy
+python-dotenv
+pydantic

@@ -437,7 +437,7 @@ class DataAnalyzer:
             if x_col:
                 # Suggest chart type based on the columns they specified
                 chart_type, suggested_x, suggested_y, reason = self._suggest_best_visualization(
-                    df[x_col:x_col+1] if x_col and not y_col else df, 
+                    df[[x_col]] if x_col and not y_col else df, 
                     query, 
                     numeric_cols, 
                     categorical_cols
@@ -632,4 +632,6 @@ Provide 2-3 key insights. Keep it concise.
             return insight
         
         except Exception as e:
-            return f"Chart generated successfully. Unable to generate AI insight: {str(e)}"
+            # Gracefully handle Ollama errors (memory issues, connection errors, etc.)
+            print(f"⚠️ AI insight generation failed: {str(e)}")
+            return f"Chart generated successfully. (AI insights unavailable)"

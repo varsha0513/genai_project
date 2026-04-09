@@ -112,7 +112,7 @@ function ChatInterface({
               {message.chartPath && (
                 <div className="message-chart">
                   <img 
-                    src={`http://localhost:5001/chart/${message.chartPath.split('\\').pop()}`}
+                    src={`http://localhost:8000/chart/${message.chartPath.split('\\').pop()}`}
                     alt="Data Visualization"
                     className="chart-image"
                     onError={(e) => {
